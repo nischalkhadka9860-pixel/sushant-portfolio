@@ -29,14 +29,13 @@ type Project = {
 const brands: Project[] = [
   {
     id: 1,
-    name: "Brand 01",
+    name: "Artseum",
     category: "Creative Project",
     year: "2026",
     images: [
-      "/images/123.png",
-      "/images/photo1.png",
-      "/images/photo2.png",
-      "/images/photo3.png",
+      "/images/Brand1.jpg",
+      "/images/Brand2.jpg",
+      "/images/Brand3.jpg",
     ],
     description:
       "A creative project showcasing visual work, collaboration, and the story behind the final result.",
@@ -44,14 +43,16 @@ const brands: Project[] = [
 
   {
     id: 2,
-    name: "Brand 02",
+    name: "Klaron",
     category: "Visual Campaign",
     year: "2026",
     images: [
-      "/images/photo4.png",
-      "/images/photo6.png",
-      "/images/photo7.png",
-      "/images/photo8.png",
+      "/images/Brand4.jpg",
+      "/images/Brand5.jpg",
+      "/images/Brand6.jpg",
+      "/images/Brand7.jpg",
+      "/images/Brand8.jpg",
+      "/images/Brand9.jpg",
     ],
     description:
       "A visual campaign created through a combination of creative direction, visual development, and execution.",
@@ -59,13 +60,18 @@ const brands: Project[] = [
 
   {
     id: 3,
-    name: "Brand 03",
+    name: "Klaron",
     category: "Creative Direction",
     year: "2026",
     images: [
-      "/images/photo1.png",
-      "/images/photo3.png",
-      "/images/photo6.png",
+      "/images/Brand10.jpg",
+      "/images/Brand11.jpg",
+      "/images/Brand12.jpg",
+      "/images/Brand13.jpg",
+      "/images/Brand14.jpg",
+      "/images/Brand15.jpg",
+      "/images/Brand16.jpg",
+      "/images/Brand17.jpg",
     ],
     description:
       "A creative direction project focused on developing a strong visual language and memorable presentation.",
@@ -73,13 +79,13 @@ const brands: Project[] = [
 
   {
     id: 4,
-    name: "Brand 04",
+    name: "Babal Essentials",
     category: "Visual Identity",
     year: "2026",
     images: [
-      "/images/photo2.png",
-      "/images/photo4.png",
-      "/images/photo7.png",
+      "/images/Brand18.jpg",
+      "/images/Brand19.jpg",
+      "/images/Brand20.jpg",
     ],
     description:
       "A visual identity project exploring composition, photography, and a distinctive visual direction.",
@@ -170,7 +176,7 @@ function ProjectCard({
         <motion.img
           src={project.images[0]}
           alt={project.name}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-[center_20%]"
           whileHover={{
             scale: 1.06,
           }}
