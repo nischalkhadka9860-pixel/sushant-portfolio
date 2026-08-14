@@ -706,43 +706,90 @@ return (
                 ================================================= */}
 
             <motion.div
-              initial={{
-                opacity: 0,
-                x: 80,
-                scale: 0.96,
-              }}
-              animate={{
-                opacity: 1,
-                x: 0,
-                scale: 1,
-              }}
-              transition={{
-                duration: 1.2,
-                delay: 0.2,
-                ease: [0.22, 1, 0.36, 1] as const,
-              }}
-              className="relative mx-auto -mt-10 w-full max-w-[440px] md:mr-0 md:-mt-16"
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  src="/images/123.png"
-                  alt="Sushant Prajapati"
-                  className="h-auto w-full object-cover"
-                />
+  initial={{
+    opacity: 0,
+    x: 80,
+    scale: 0.96,
+  }}
+  animate={{
+    opacity: 1,
+    x: 0,
+    scale: 1,
+  }}
+  transition={{
+    duration: 1.2,
+    delay: 0.2,
+    ease: [0.22, 1, 0.36, 1] as const,
+  }}
+  className="relative mx-auto -mt-10 w-full max-w-[440px] md:mr-0 md:-mt-16"
+>
+  {/* SOCIAL LINKS */}
+  <div className="absolute -right-14 top-1/2 z-20 hidden -translate-y-1/2 flex-col items-center gap-5 md:flex">
 
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-              </div>
+    {/* Instagram */}
+    <a
+      href="https://www.instagram.com/sushant_prajapati_77/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+      className="group text-white/50 transition-all duration-300 hover:scale-110 hover:text-white"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        className="h-5 w-5"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      </svg>
+    </a>
 
-              <div className="mt-4 flex items-center justify-between text-[9px] uppercase tracking-[0.25em] text-white/30">
-                <span>
-                  Portrait / 01
-                </span>
+    {/* TikTok */}
+    <a
+      href="https://www.tiktok.com/@afine_sus?is_from_webapp=1&sender_device=pc"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="TikTok"
+      className="group text-white/50 transition-all duration-300 hover:scale-110 hover:text-white"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="h-5 w-5"
+      >
+        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-3.77A4.83 4.83 0 0 1 15.7 2h-3.4v13.17a2.48 2.48 0 1 1-2.48-2.48c.2 0 .4.02.59.07V9.3a5.9 5.9 0 1 0 5.89 5.87V8.82a8.2 8.2 0 0 0 4.79 1.54V7a4.84 4.84 0 0 1-1.5-.31Z" />
+      </svg>
+    </a>
 
-                <span>
-                  S.P.
-                </span>
-              </div>
-            </motion.div>
+  </div>
+
+  {/* PHOTO */}
+  <div className="relative overflow-hidden">
+    <img
+      src="/images/123.png"
+      alt="Sushant Prajapati"
+      className="h-auto w-full object-cover"
+    />
+
+    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+  </div>
+
+  {/* PHOTO LABEL */}
+  <div className="mt-4 flex items-center justify-between text-[9px] uppercase tracking-[0.25em] text-white/30">
+    <span>
+      Portrait / 01
+    </span>
+
+    <span>
+      S.P.
+    </span>
+  </div>
+</motion.div>
           </div>
         </div>
       </section>
