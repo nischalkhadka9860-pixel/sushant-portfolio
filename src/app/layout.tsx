@@ -23,28 +23,26 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Sushant Prajapati is a model building a growing presence in fashion, bringing confidence, character, and individuality to every frame.",
+    "Official portfolio of Sushant Prajapati, a professional model showcasing his creative journey, selected work, portfolio, and modeling presence.",
 
   keywords: [
     "Sushant Prajapati",
     "Sushant Prajapati model",
-    "Sushant Prajapati portfolio",
+    "Sushant model",
     "Nepal model",
     "Kathmandu model",
-    "fashion model Nepal",
-    "male model Nepal",
     "model portfolio",
+    "Nepali model",
+    "fashion model Nepal",
   ],
 
   authors: [
     {
       name: "Sushant Prajapati",
-      url: siteUrl,
     },
   ],
 
   creator: "Sushant Prajapati",
-  publisher: "Sushant Prajapati",
 
   alternates: {
     canonical: siteUrl,
@@ -63,7 +61,7 @@ export const metadata: Metadata = {
         url: "/images/123.png",
         width: 1200,
         height: 630,
-        alt: "Sushant Prajapati — Model Portfolio",
+        alt: "Sushant Prajapati - Model Portfolio",
       },
     ],
   },
@@ -72,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sushant Prajapati | Model Portfolio",
     description:
-      "Explore the portfolio and creative work of model Sushant Prajapati.",
+      "Explore the portfolio, creative journey, and selected work of Sushant Prajapati.",
     images: ["/images/123.png"],
   },
 
@@ -87,38 +85,18 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-
-  icons: {
-    icon: "/images/123.png",
-  },
 };
 
-const structuredData = {
+const personSchema = {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": `${siteUrl}/#website`,
-      name: "Sushant Prajapati",
-      alternateName: "Sushant Prajapati Model Portfolio",
-      url: `${siteUrl}/`,
-    },
-
-    {
-      "@type": "Person",
-      "@id": `${siteUrl}/#person`,
-      name: "Sushant Prajapati",
-      url: `${siteUrl}/`,
-      image: `${siteUrl}/images/123.png`,
-      jobTitle: "Model",
-      description:
-        "Sushant Prajapati is a model building a growing presence in fashion, bringing confidence, character, and individuality to every frame.",
-      mainEntityOfPage: {
-        "@type": "WebPage",
-        "@id": `${siteUrl}/`,
-      },
-    },
-  ],
+  "@type": "Person",
+  name: "Sushant Prajapati",
+  url: siteUrl,
+  image: `${siteUrl}/images/123.png`,
+  jobTitle: "Model",
+  description:
+    "Sushant Prajapati is a model from Nepal with a creative portfolio featuring modeling work, fashion, and visual storytelling.",
+  sameAs: [],
 };
 
 export default function RootLayout({
@@ -135,7 +113,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
+            __html: JSON.stringify(personSchema),
           }}
         />
       </head>
