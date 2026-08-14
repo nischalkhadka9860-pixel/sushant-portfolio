@@ -732,7 +732,7 @@ export default function PortfolioPage() {
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
 
                 {/* SOCIAL LINKS */}
-                <div className="absolute -right-16 top-1/2 z-30 flex -translate-y-1/2 flex-col items-center gap-5">
+                <div className="absolute right-[-20px] top-1/2 z-20 hidden -translate-y-1/2 flex-col items-center gap-5 md:flex">
 
                   {/* Instagram */}
                   <a
@@ -740,14 +740,14 @@ export default function PortfolioPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white/60 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:border-white/60 hover:bg-white hover:text-black"
+                    className="flex h-15 w-15 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white/60 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:border-white/60 hover:bg-white hover:text-black"
                   >
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="1.7"
-                      className="h-[18px] w-[18px]"
+                      className="h-[40px] w-[60px]"
                     >
                       <rect x="3" y="3" width="18" height="18" rx="5" />
                       <circle cx="12" cy="12" r="4" />
@@ -767,12 +767,12 @@ export default function PortfolioPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="TikTok"
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white/60 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:border-white/60 hover:bg-white hover:text-black"
+                    className="flex h-15 w-15 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white/60 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:border-white/60 hover:bg-white hover:text-black"
                   >
                     <svg
                       viewBox="0 0 24 24"
                       fill="currentColor"
-                      className="h-[18px] w-[18px]"
+                      className="h-[40px] w-[60px]"
                     >
                       <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-3.77A4.83 4.83 0 0 1 15.5 2h-3.32v13.67a2.94 2.94 0 1 1-2.94-2.94c.31 0 .61.05.89.14V9.5a6.6 6.6 0 0 0-.89-.06A6.24 6.24 0 1 0 15.5 15.7V8.56a8.1 8.1 0 0 0 4.74 1.53V6.77c-.22 0-.44-.03-.65-.08Z" />
                     </svg>
