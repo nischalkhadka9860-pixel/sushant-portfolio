@@ -132,7 +132,7 @@ const fadeUp = {
 
     transition: {
       duration: 0.8,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
     },
   },
 };
@@ -176,7 +176,7 @@ function ProjectCard({
           }}
           transition={{
             duration: 0.7,
-            ease: [0.22, 1, 0.36, 1],
+           ease: [0.22, 1, 0.36, 1] as const,
           }}
         />
 
@@ -277,7 +277,7 @@ function ProjectModal({
         }}
         transition={{
           duration: 0.5,
-          ease: [0.22, 1, 0.36, 1],
+          ease: [0.22, 1, 0.36, 1] as const,
         }}
         onClick={(event) => event.stopPropagation()}
         className="relative flex h-[94vh] w-[92vw] max-w-[1450px] flex-col overflow-hidden rounded-sm border border-white/10 bg-[#171717] shadow-2xl"
@@ -666,7 +666,7 @@ return (
               }}
               transition={{
                 duration: 1,
-                ease: [0.22, 1, 0.36, 1],
+                ease: [0.22, 1, 0.36, 1] as const,
               }}
               className="relative z-10"
             >
@@ -719,7 +719,7 @@ return (
               transition={{
                 duration: 1.2,
                 delay: 0.2,
-                ease: [0.22, 1, 0.36, 1],
+                ease: [0.22, 1, 0.36, 1] as const,
               }}
               className="relative mx-auto -mt-10 w-full max-w-[440px] md:mr-0 md:-mt-16"
             >
