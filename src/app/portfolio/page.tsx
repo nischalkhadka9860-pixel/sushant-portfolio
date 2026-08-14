@@ -706,7 +706,7 @@ return (
                 ================================================= */}
 
             <motion.div
-  initial={{
+   initial={{
     opacity: 0,
     x: 80,
     scale: 0.96,
@@ -723,53 +723,8 @@ return (
   }}
   className="relative mx-auto -mt-10 w-full max-w-[440px] md:mr-0 md:-mt-16"
 >
-  {/* SOCIAL LINKS */}
-  <div className="absolute -right-14 top-1/2 z-20 hidden -translate-y-1/2 flex-col items-center gap-5 md:flex">
-
-    {/* Instagram */}
-    <a
-      href="https://www.instagram.com/sushant_prajapati_77/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Instagram"
-      className="group text-white/50 transition-all duration-300 hover:scale-110 hover:text-white"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        className="h-5 w-5"
-      >
-        <rect x="3" y="3" width="18" height="18" rx="5" />
-        <circle cx="12" cy="12" r="4" />
-        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-      </svg>
-    </a>
-
-    {/* TikTok */}
-    <a
-      href="https://www.tiktok.com/@afine_sus?is_from_webapp=1&sender_device=pc"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="TikTok"
-      className="group text-white/50 transition-all duration-300 hover:scale-110 hover:text-white"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        className="h-5 w-5"
-      >
-        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-3.77A4.83 4.83 0 0 1 15.7 2h-3.4v13.17a2.48 2.48 0 1 1-2.48-2.48c.2 0 .4.02.59.07V9.3a5.9 5.9 0 1 0 5.89 5.87V8.82a8.2 8.2 0 0 0 4.79 1.54V7a4.84 4.84 0 0 1-1.5-.31Z" />
-      </svg>
-    </a>
-
-  </div>
-
   {/* PHOTO */}
-  <div className="relative overflow-hidden">
+     <div className="relative overflow-visible">
     <img
       src="/images/123.png"
       alt="Sushant Prajapati"
@@ -777,6 +732,49 @@ return (
     />
 
     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+
+    {/* SOCIAL LINKS */}
+    <div className="absolute -right-16 top-1/2 z-30 flex -translate-y-1/2 flex-col items-center gap-5">
+
+      {/* INSTAGRAM */}
+      <a
+        href="https://www.instagram.com/sushant_prajapati_77/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Sushant Prajapati Instagram"
+        className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white/60 backdrop-blur-sm transition-all duration-300 hover:border-white/60 hover:bg-white hover:text-black"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          className="h-[18px] w-[18px]"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.7"
+        >
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+        </svg>
+      </a>
+
+      {/* TIKTOK */}
+      <a
+        href="https://www.tiktok.com/@afine_sus?is_from_webapp=1&sender_device=pc"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Sushant Prajapati TikTok"
+        className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white/60 backdrop-blur-sm transition-all duration-300 hover:border-white/60 hover:bg-white hover:text-black"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          className="h-[18px] w-[18px]"
+          fill="currentColor"
+        >
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-3.77A4.83 4.83 0 0 1 15.5 2h-3.32v13.67a2.94 2.94 0 1 1-2.94-2.94c.31 0 .61.05.89.14V9.5a6.6 6.6 0 0 0-.89-.06A6.24 6.24 0 1 0 15.5 15.7V8.56a8.1 8.1 0 0 0 4.74 1.53V6.77c-.22 0-.44-.03-.65-.08Z" />
+        </svg>
+      </a>
+
+    </div>
   </div>
 
   {/* PHOTO LABEL */}
@@ -789,8 +787,7 @@ return (
       S.P.
     </span>
   </div>
-      </motion.div>
-          </div>
+    </motion.div>
         </div>
       </section>
 
