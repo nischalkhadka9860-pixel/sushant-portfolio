@@ -1115,52 +1115,6 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-
-      {/* =====================================================
-          SERVICES
-          ===================================================== */}
-
-      <section className="border-t border-white/10 bg-[#171717] px-6 py-28 md:px-10 md:py-40">
-        <div className="mx-auto max-w-[1500px]">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{
-              once: true,
-            }}
-            variants={fadeUp}
-          >
-            <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
-              Skills & Services
-            </p>
-
-            <div className="mt-12 grid gap-0 border-t border-white/10 md:grid-cols-2">
-              {[
-                "Creative Direction",
-                "Visual Design",
-                "Brand Identity",
-                "Campaign Development",
-                "Photography / Visual Content",
-                "Digital Experiences",
-              ].map((service, index) => (
-                <div
-                  key={service}
-                  className="group flex items-center justify-between border-b border-white/10 py-7 md:px-5"
-                >
-                  <span className="text-xl tracking-tight text-white/75 transition group-hover:text-white md:text-2xl">
-                    {service}
-                  </span>
-
-                  <span className="text-xs text-white/25">
-                    0{index + 1}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* =====================================================
           CONTACT
           ===================================================== */}
