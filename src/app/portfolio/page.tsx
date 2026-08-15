@@ -29,63 +29,72 @@ type Project = {
 const brands: Project[] = [
   {
     id: 1,
-    name: "Brand 01",
-    category: "Creative Project",
+    name: "Artseum",
+    category: "Promotional Studio Shoot",
     year: "2026",
     images: [
-      "/images/123.png",
-      "/images/photo1.png",
-      "/images/photo2.png",
-      "/images/photo3.png",
+      "/images/Brand1.jpg",
+      "/images/Brand2.jpg",
+      "/images/Brand3.jpg",
     ],
     description:
-      "A creative project showcasing visual work, collaboration, and the story behind the final result.",
+      "A refined studio collaboration at Artseum, capturing a polished promotional aesthetic through considered styling, precise lighting, and confident on-camera presence.",
   },
 
   {
     id: 2,
-    name: "Brand 02",
-    category: "Visual Campaign",
+    name: "klaron",
+    category: "Lifestyle",
     year: "2026",
     images: [
-      "/images/photo4.png",
-      "/images/photo6.png",
-      "/images/photo7.png",
-      "/images/photo8.png",
+      "/images/Brand4.jpg",
+      "/images/Brand5.jpg",
+      "/images/Brand6.jpg",
+      "/images/Brand7.jpg",
+      "/images/Brand8.jpg",
+      "/images/Brand9.jpg",
     ],
     description:
-      "A visual campaign created through a combination of creative direction, visual development, and execution.",
+      "A lifestyle-focused collaboration for Klaron, capturing a natural and effortless approach to everyday fashion through relaxed styling, authentic movement, and an outdoor setting.",
   },
 
   {
     id: 3,
-    name: "Brand 03",
-    category: "Creative Direction",
+    name: "klaron",
+    category: "Brand Campaign",
     year: "2026",
     images: [
-      "/images/photo1.png",
-      "/images/photo3.png",
-      "/images/photo6.png",
+      "/images/Brand10.jpg",
+      "/images/Brand11.jpg",
+      "/images/Brand12.jpg",
+      "/images/Brand13.jpg",
+      "/images/Brand14.jpg",
+      "/images/Brand15.jpg",
+      "/images/Brand16.jpg",
+      "/images/Brand17.jpg",
+
     ],
     description:
-      "A creative direction project focused on developing a strong visual language and memorable presentation.",
+      "A branding-focused shoot for Klaron, using a clean studio aesthetic, controlled lighting, and strong visual presence to create imagery aligned with the brand’s identity.",
   },
 
   {
     id: 4,
-    name: "Brand 04",
-    category: "Visual Identity",
+    name: "Babal Wears / Babal Essentials",
+    category: "Fashion / Casualwear Campaign",
     year: "2026",
     images: [
-      "/images/photo2.png",
-      "/images/photo4.png",
-      "/images/photo7.png",
+      "/images/Brand18.jpg",
+      "/images/Brand19.jpg",
+      "/images/Brand20.jpg",
     ],
     description:
-      "A visual identity project exploring composition, photography, and a distinctive visual direction.",
+      "A refined campaign for Babal Wears, showcasing its contemporary casualwear and graphic-led designs through a combination of studio portraiture and lifestyle imagery. The work captures the brand’s distinctive visual identity while highlighting its relaxed, modern approach to everyday fashion.",
   },
 ];
-
+/* =========================================================
+  projects
+   ========================================================= */
 const selectedWork: Project[] = [
   {
     id: 5,
@@ -702,55 +711,103 @@ export default function PortfolioPage() {
           BRANDS
           ===================================================== */}
 
-      <section
-        id="brands"
-        className="border-t border-white/10 bg-[#171717] px-6 py-28 md:px-10 md:py-40"
-      >
-        <div className="mx-auto max-w-[1500px]">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{
-              once: true,
-            }}
-            variants={fadeUp}
-            className="mb-16 flex flex-col justify-between gap-8 md:flex-row md:items-end"
-          >
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
-                 Collaborations
-              </p>
+<section
+  id="brands"
+  className="border-t border-white/10 bg-[#171717] px-6 py-28 md:px-10 md:py-40"
+>
+  <div className="mx-auto max-w-[1500px]">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{
+        once: true,
+      }}
+      variants={fadeUp}
+      className="mb-16 flex flex-col justify-between gap-8 md:flex-row md:items-end"
+    >
+      <div>
+        <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
+          Collaborations
+        </p>
 
-              <h2 className="mt-5 text-4xl tracking-[-0.04em] md:text-7xl">
-                Brands I&apos;ve
-                <br />
+        <h2 className="mt-5 text-4xl tracking-[-0.04em] md:text-7xl">
+          Brands I&apos;ve
+          <br />
 
-                <span className="text-white/30">
-                  worked with.
-                </span>
-              </h2>
-            </div>
+          <span className="text-white/30">
+            worked with.
+          </span>
+        </h2>
+      </div>
 
-            <p className="max-w-xs text-sm leading-6 text-white/40">
-              A selection of collaborations and projects. Click a
-              project to explore all of its images.
-            </p>
-          </motion.div>
+      <p className="max-w-xs text-sm leading-6 text-white/40">
+        A selection of collaborations and projects. Click a
+        project to explore all of its images.
+      </p>
+    </motion.div>
 
-          <div className="grid gap-x-6 gap-y-16 md:grid-cols-2">
-            {brands.map((project, index) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                index={index}
-                onClick={() =>
-                  setSelectedProject(project)
-                }
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+    {/* BRAND PROJECTS */}
+    <div className="grid gap-x-6 gap-y-16 md:grid-cols-2">
+      {brands.map((project, index) => (
+        <ProjectCard
+          key={project.id}
+          project={project}
+          index={index}
+          onClick={() =>
+            setSelectedProject(project)
+          }
+        />
+      ))}
+    </div>
+
+    {/* JOURNEY CONTINUES */}
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 40,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: true,
+        amount: 0.3,
+      }}
+      transition={{
+        duration: 1,
+        ease: [0.22, 1, 0.36, 1] as const,
+      }}
+      className="mt-28 border-t border-white/10 pt-16 md:mt-40 md:pt-20"
+    >
+      <div className="flex flex-col items-center text-center">
+        <p className="mb-6 text-[9px] uppercase tracking-[0.35em] text-white/30">
+          The next chapter
+        </p>
+
+        <h3 className="max-w-4xl font-serif text-4xl font-light leading-[0.95] tracking-[-0.04em] text-white/90 md:text-7xl">
+          The journey
+          <br />
+
+          <span className="text-white/30">
+            continues.
+          </span>
+        </h3>
+
+        <div className="mt-10 h-px w-16 bg-white/20" />
+
+        <p className="mt-6 max-w-md text-xs leading-6 text-white/35 md:text-sm">
+          More collaborations, campaigns, and creative stories
+          are yet to come.
+        </p>
+
+        <p className="mt-8 text-[9px] uppercase tracking-[0.3em] text-white/20">
+          04 — ∞
+        </p>
+      </div>
+    </motion.div>
+  </div>
+</section>
                     {/* =====================================================
           ABOUT
           ===================================================== */}
