@@ -29,13 +29,14 @@ type Project = {
 const brands: Project[] = [
   {
     id: 1,
-    name: "Artseum",
+    name: "Brand 01",
     category: "Creative Project",
     year: "2026",
     images: [
-      "/images/Brand1.jpg",
-      "/images/Brand2.jpg",
-      "/images/Brand3.jpg",
+      "/images/123.png",
+      "/images/photo1.png",
+      "/images/photo2.png",
+      "/images/photo3.png",
     ],
     description:
       "A creative project showcasing visual work, collaboration, and the story behind the final result.",
@@ -43,16 +44,14 @@ const brands: Project[] = [
 
   {
     id: 2,
-    name: "Klaron",
+    name: "Brand 02",
     category: "Visual Campaign",
     year: "2026",
     images: [
-      "/images/Brand4.jpg",
-      "/images/Brand5.jpg",
-      "/images/Brand6.jpg",
-      "/images/Brand7.jpg",
-      "/images/Brand8.jpg",
-      "/images/Brand9.jpg",
+      "/images/photo4.png",
+      "/images/photo6.png",
+      "/images/photo7.png",
+      "/images/photo8.png",
     ],
     description:
       "A visual campaign created through a combination of creative direction, visual development, and execution.",
@@ -60,18 +59,13 @@ const brands: Project[] = [
 
   {
     id: 3,
-    name: "Klaron",
+    name: "Brand 03",
     category: "Creative Direction",
     year: "2026",
     images: [
-      "/images/Brand10.jpg",
-      "/images/Brand11.jpg",
-      "/images/Brand12.jpg",
-      "/images/Brand13.jpg",
-      "/images/Brand14.jpg",
-      "/images/Brand15.jpg",
-      "/images/Brand16.jpg",
-      "/images/Brand17.jpg",
+      "/images/photo1.png",
+      "/images/photo3.png",
+      "/images/photo6.png",
     ],
     description:
       "A creative direction project focused on developing a strong visual language and memorable presentation.",
@@ -79,13 +73,13 @@ const brands: Project[] = [
 
   {
     id: 4,
-    name: "Babal Essentials",
+    name: "Brand 04",
     category: "Visual Identity",
     year: "2026",
     images: [
-      "/images/Brand18.jpg",
-      "/images/Brand19.jpg",
-      "/images/Brand20.jpg",
+      "/images/photo2.png",
+      "/images/photo4.png",
+      "/images/photo7.png",
     ],
     description:
       "A visual identity project exploring composition, photography, and a distinctive visual direction.",
@@ -176,7 +170,7 @@ function ProjectCard({
         <motion.img
           src={project.images[0]}
           alt={project.name}
-          className="h-full w-full object-cover object-[center_20%]"
+          className="h-full w-full object-cover"
           whileHover={{
             scale: 1.06,
           }}
@@ -397,10 +391,11 @@ function ProjectModal({
                     type="button"
                     key={`${image}-${index}`}
                     onClick={() => setCurrentImage(index)}
-                    className={`relative aspect-square overflow-hidden border transition ${currentImage === index
+                    className={`relative aspect-square overflow-hidden border transition ${
+                      currentImage === index
                         ? "border-white"
                         : "border-white/10 opacity-50 hover:opacity-100"
-                      }`}
+                    }`}
                   >
                     <img
                       src={image}
@@ -453,57 +448,7 @@ function ProjectModal({
     </motion.div>
   );
 }
-/* =========================================================
-   BACKGROUND PARTICLES
-   ========================================================= */
 
-function BackgroundParticles() {
-  const particles = Array.from({ length: 60 }, (_, index) => ({
-    id: index,
-    left: `${(index * 37) % 100}%`,
-    top: `${(index * 67) % 100}%`,
-    size: 1 + (index % 3),
-    duration: 5 + (index % 6),
-    delay: -(index % 5),
-    moveX:
-      (index % 2 === 0 ? 1 : -1) *
-      (25 + (index % 45)),
-    moveY:
-      (index % 3 === 0 ? -1 : 1) *
-      (20 + (index % 40)),
-  }));
-
-  return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-      {particles.map((particle) => (
-        <motion.span
-          key={particle.id}
-          className="absolute rounded-full bg-white"
-          style={{
-            left: particle.left,
-            top: particle.top,
-            width: particle.size,
-            height: particle.size,
-            opacity: 0.16,
-            boxShadow: "0 0 8px rgba(255,255,255,0.25)",
-          }}
-          animate={{
-            x: [0, particle.moveX, 0],
-            y: [0, particle.moveY, 0],
-            opacity: [0.08, 0.22, 0.08],
-            scale: [1, 1.6, 1],
-          }}
-          transition={{
-            duration: particle.duration,
-            delay: particle.delay,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-    </div>
-  );
-}
 /* =========================================================
    MAIN PAGE
    ========================================================= */
@@ -515,8 +460,7 @@ export default function PortfolioPage() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#171717] text-white selection:bg-white selection:text-black">
-      <BackgroundParticles />
+    <main className="min-h-screen bg-[#171717] text-white selection:bg-white selection:text-black">
       {/* =====================================================
           HEADER
           ===================================================== */}
@@ -685,7 +629,7 @@ export default function PortfolioPage() {
 
               <div className="mt-12 ml-[7vw] max-w-md">
                 <p className="text-sm leading-7 text-white/45 md:text-base">
-                  A young model with a growing presence in fashion, bringing confidence, character, and individuality to every frame.
+                 A young model with a growing presence in fashion, bringing confidence, character, and individuality to every frame.
                 </p>
 
                 <a
@@ -728,7 +672,7 @@ export default function PortfolioPage() {
               }}
               className="relative mx-auto -mt-10 w-full max-w-[440px] md:mr-0 md:-mt-16"
             >
-              <div className="relative overflow-visible">
+              <div className="relative overflow-hidden">
                 <img
                   src="/images/123.png"
                   alt="Sushant Prajapati"
@@ -736,55 +680,6 @@ export default function PortfolioPage() {
                 />
 
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-
-                {/* SOCIAL LINKS */}
-                <div className="absolute right-[-20px] top-1/2 z-20 hidden -translate-y-1/2 flex-col items-center gap-5 md:flex">
-
-                  {/* Instagram */}
-                  <a
-                    href="https://www.instagram.com/sushant_prajapati_77/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                    className="flex h-15 w-15 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white/60 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:border-white/60 hover:bg-white hover:text-black"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.7"
-                      className="h-[40px] w-[60px]"
-                    >
-                      <rect x="3" y="3" width="18" height="18" rx="5" />
-                      <circle cx="12" cy="12" r="4" />
-                      <circle
-                        cx="17.5"
-                        cy="6.5"
-                        r="1"
-                        fill="currentColor"
-                        stroke="none"
-                      />
-                    </svg>
-                  </a>
-
-                  {/* TikTok */}
-                  <a
-                    href="https://www.tiktok.com/@afine_sus?is_from_webapp=1&sender_device=pc"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="TikTok"
-                    className="flex h-15 w-15 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white/60 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:border-white/60 hover:bg-white hover:text-black"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="h-[40px] w-[60px]"
-                    >
-                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-3.77A4.83 4.83 0 0 1 15.5 2h-3.32v13.67a2.94 2.94 0 1 1-2.94-2.94c.31 0 .61.05.89.14V9.5a6.6 6.6 0 0 0-.89-.06A6.24 6.24 0 1 0 15.5 15.7V8.56a8.1 8.1 0 0 0 4.74 1.53V6.77c-.22 0-.44-.03-.65-.08Z" />
-                    </svg>
-                  </a>
-
-                </div>
               </div>
 
               <div className="mt-4 flex items-center justify-between text-[9px] uppercase tracking-[0.25em] text-white/30">
@@ -801,7 +696,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-
+    
 
       {/* =====================================================
           BRANDS
@@ -823,7 +718,7 @@ export default function PortfolioPage() {
           >
             <div>
               <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
-                Collaborations
+                 Collaborations
               </p>
 
               <h2 className="mt-5 text-4xl tracking-[-0.04em] md:text-7xl">
@@ -856,7 +751,7 @@ export default function PortfolioPage() {
           </div>
         </div>
       </section>
-      {/* =====================================================
+                    {/* =====================================================
           ABOUT
           ===================================================== */}
 
@@ -886,42 +781,42 @@ export default function PortfolioPage() {
             }}
             variants={fadeUp}
           >
-            <div className="relative">
-              {/* Small label */}
-              <div className="mb-6 flex items-center gap-3">
-                <span className="h-px w-10 bg-white/40" />
-                <span className="text-[10px] uppercase tracking-[0.35em] text-white/50">
-                  Introduction
-                </span>
-              </div>
+<div className="relative">
+  {/* Small label */}
+  <div className="mb-6 flex items-center gap-3">
+    <span className="h-px w-10 bg-white/40" />
+    <span className="text-[10px] uppercase tracking-[0.35em] text-white/50">
+     Introduction
+    </span>
+  </div>
 
-              <h2 className="max-w-5xl font-serif text-4xl font-light leading-[1.08] tracking-[-0.03em] text-white md:text-6xl lg:text-7xl">
-                An introduction to{" "}
-                <span className="italic text-white">
-                  Sushant,
-                </span>{" "}
-                <span className="text-white/25">
-                  his creative journey, and the work that defines his presence.
-                </span>
-              </h2>
+  <h2 className="max-w-5xl font-serif text-4xl font-light leading-[1.08] tracking-[-0.03em] text-white md:text-6xl lg:text-7xl">
+    An introduction to{" "}
+    <span className="italic text-white">
+      Sushant,
+    </span>{" "}
+    <span className="text-white/25">
+      his creative journey, and the work that defines his presence.
+    </span>
+  </h2>
 
-              {/* Bottom detail */}
-              <div className="mt-8 flex items-center gap-4 text-[9px] uppercase tracking-[0.3em] text-white/35">
-                <span>Creative / Visual / Experience</span>
+  {/* Bottom detail */}
+  <div className="mt-8 flex items-center gap-4 text-[9px] uppercase tracking-[0.3em] text-white/35">
+    <span>Creative / Visual / Experience</span>
 
 
-              </div>
-            </div>
+  </div>
+</div>
 
             <div className="mt-12 grid gap-10 md:grid-cols-2">
               <p className="text-sm leading-7 text-white/50">
                 Every journey begins with a first step. For Sushant Prajapati, that journey is taking shape through fashion, expression, and the confidence to step into every new frame.
 
-                At 20, Sushant is building his path as a model with a growing curiosity for the world of fashion and creative work. From being named 2nd Runner-Up at Model Hunt Nepal S10 to working with Babal Wears, each experience has become part of a journey that continues to evolve.
+At 20, Sushant is building his path as a model with a growing curiosity for the world of fashion and creative work. From being named 2nd Runner-Up at Model Hunt Nepal S10 to working with Babal Wears, each experience has become part of a journey that continues to evolve.
 
-                For Sushant, modeling is more than standing in front of a camera. It is about presence, expression, and discovering new ways to tell a story through an image.
+For Sushant, modeling is more than standing in front of a camera. It is about presence, expression, and discovering new ways to tell a story through an image.
 
-                This is only the beginning.
+This is only the beginning.
               </p>
             </div>
           </motion.div>
@@ -947,7 +842,7 @@ export default function PortfolioPage() {
             className="mb-16"
           >
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
-              Selected Work
+             Selected Work
             </p>
 
             <h2 className="mt-5 max-w-3xl text-4xl tracking-[-0.04em] md:text-7xl">
@@ -978,10 +873,11 @@ export default function PortfolioPage() {
                 className="group grid w-full gap-8 text-left md:grid-cols-[1.3fr_0.7fr] md:items-end"
               >
                 <div
-                  className={`relative overflow-hidden ${index % 2 === 1
+                  className={`relative overflow-hidden ${
+                    index % 2 === 1
                       ? "md:order-2"
                       : ""
-                    }`}
+                  }`}
                 >
                   <motion.img
                     src={project.images[0]}
@@ -999,10 +895,11 @@ export default function PortfolioPage() {
                 </div>
 
                 <div
-                  className={`${index % 2 === 1
+                  className={`${
+                    index % 2 === 1
                       ? "md:order-1"
                       : ""
-                    }`}
+                  }`}
                 >
                   <div className="mb-6 flex items-center justify-between border-b border-white/10 pb-4">
                     <span className="text-[10px] uppercase tracking-[0.25em] text-white/40">
@@ -1057,7 +954,7 @@ export default function PortfolioPage() {
               variants={fadeUp}
             >
               <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
-                Experience
+                 Experience
               </p>
             </motion.div>
 
@@ -1114,6 +1011,7 @@ export default function PortfolioPage() {
           </div>
         </div>
       </section>
+
 
       {/* =====================================================
           CONTACT
@@ -1213,6 +1111,52 @@ Best regards,
                   className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
                 />
               </a>
+            </div>
+
+            {/* =================================================
+                SOCIAL LINKS
+                ================================================= */}
+
+            <div className="mx-auto mt-12 max-w-xl">
+              <p className="mb-5 text-[10px] uppercase tracking-[0.3em] text-white/35">
+                Follow Sushant
+              </p>
+
+              <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <a
+                  href="https://www.instagram.com/sushant_prajapati_77/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex w-full items-center justify-between gap-5 border border-white/15 px-6 py-4 text-xs uppercase tracking-[0.2em] transition-all duration-500 hover:border-white/40 hover:bg-white hover:text-black sm:w-auto"
+                >
+                  <span className="flex items-center gap-3">
+                    <span className="text-[14px]">◎</span>
+                    Instagram
+                  </span>
+
+                  <ArrowUpRight
+                    size={15}
+                    className="transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1"
+                  />
+                </a>
+
+                <a
+                  href="https://www.tiktok.com/@afine_sus?is_from_webapp=1&sender_device=pc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex w-full items-center justify-between gap-5 border border-white/15 px-6 py-4 text-xs uppercase tracking-[0.2em] transition-all duration-500 hover:border-white/40 hover:bg-white hover:text-black sm:w-auto"
+                >
+                  <span className="flex items-center gap-3">
+                    <span className="text-[14px]">♪</span>
+                    TikTok
+                  </span>
+
+                  <ArrowUpRight
+                    size={15}
+                    className="transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1"
+                  />
+                </a>
+              </div>
             </div>
 
             {/* =================================================
