@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   creator: "Sushant Prajapati",
 
   alternates: {
-    canonical: siteUrl,
+    canonical: "/",
   },
 
   openGraph: {
