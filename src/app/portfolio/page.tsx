@@ -19,6 +19,7 @@ type Project = {
   year: string;
   images: string[];
   description: string;
+  video?: string;
 };
 
 /* =========================================================
@@ -98,8 +99,8 @@ const brands: Project[] = [
 const selectedWork: Project[] = [
   {
     id: 5,
-    name: "Selected Project 01",
-    category: "Featured Work",
+    name: "Model Hunt Nepal — Season 10",
+    category: "Modeling Competition",
     year: "2026",
     images: [
       "/images/photo2.png",
@@ -107,22 +108,10 @@ const selectedWork: Project[] = [
       "/images/photo6.png",
     ],
     description:
-      "A featured project that represents the creative approach and visual style behind the work.",
+      "A defining chapter in Sushant’s modeling journey, showcasing his confidence, versatility, and presence throughout Model Hunt Nepal Season 10. The experience marked an important step in his development as a professional model, from competition appearances to working confidently in front of the camera and on stage.",
   },
 
-  {
-    id: 6,
-    name: "Selected Project 02",
-    category: "Featured Work",
-    year: "2026",
-    images: [
-      "/images/photo3.png",
-      "/images/photo7.png",
-      "/images/photo8.png",
-    ],
-    description:
-      "Another selected project showcasing creative development and visual storytelling.",
-  },
+  
 ];
 
 /* =========================================================
@@ -179,7 +168,7 @@ function ProjectCard({
         <motion.img
           src={project.images[0]}
           alt={project.name}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-[center_20%]"
           whileHover={{
             scale: 1.06,
           }}
@@ -242,13 +231,20 @@ function ProjectModal({
 }) {
   const [currentImage, setCurrentImage] = useState(0);
 
+  const hasVideo = Boolean(project.video);
+  const hasImages = project.images.length > 0;
+
   const nextImage = () => {
+    if (!hasImages) return;
+
     setCurrentImage((current) =>
       current === project.images.length - 1 ? 0 : current + 1,
     );
   };
 
   const previousImage = () => {
+    if (!hasImages) return;
+
     setCurrentImage((current) =>
       current === 0 ? project.images.length - 1 : current - 1,
     );
@@ -305,68 +301,97 @@ function ProjectModal({
         {/* MODAL CONTENT */}
 
         <div className="grid min-h-0 flex-1 md:grid-cols-[1.5fr_0.5fr]">
-          {/* IMAGE AREA */}
+
+          {/* =================================================
+              MEDIA AREA
+              ================================================= */}
 
           <div className="relative flex min-h-[400px] items-center justify-center overflow-hidden bg-black md:min-h-[650px]">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={project.images[currentImage]}
-                src={project.images[currentImage]}
-                alt={`${project.name} ${currentImage + 1}`}
-                initial={{
-                  opacity: 0,
-                  scale: 1.03,
-                }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                }}
-                exit={{
-                  opacity: 0,
-                  scale: 0.98,
-                }}
-                transition={{
-                  duration: 0.4,
-                }}
-                className="h-full max-h-[82vh] w-full scale-[1.12] object-contain"
-              />
-            </AnimatePresence>
 
-            {/* IMAGE COUNTER */}
+            {/* VIDEO PROJECT */}
 
-            <div className="absolute bottom-5 left-5 border border-white/15 bg-black/50 px-4 py-2 text-[10px] uppercase tracking-[0.2em] backdrop-blur-md">
-              {String(currentImage + 1).padStart(2, "0")} /{" "}
-              {String(project.images.length).padStart(2, "0")}
-            </div>
-
-            {/* PREVIOUS / NEXT */}
-
-            {project.images.length > 1 && (
+            {hasVideo ? (
+              <div className="relative h-full w-full min-h-[400px] bg-black md:min-h-[650px]">
+                <iframe
+                  src={project.video}
+                  title={project.name}
+                  className="absolute inset-0 h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            ) : hasImages ? (
+              /* IMAGE PROJECT */
               <>
-                <button
-                  type="button"
-                  onClick={previousImage}
-                  className="absolute left-5 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/50 backdrop-blur-md transition hover:bg-white hover:text-black"
-                  aria-label="Previous image"
-                >
-                  <ArrowLeft size={18} />
-                </button>
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={project.images[currentImage]}
+                    src={project.images[currentImage]}
+                    alt={`${project.name} ${currentImage + 1}`}
+                    initial={{
+                      opacity: 0,
+                      scale: 1.03,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      scale: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      scale: 0.98,
+                    }}
+                    transition={{
+                      duration: 0.4,
+                    }}
+                    className="h-full max-h-[82vh] w-full scale-[1.12] object-contain"
+                  />
+                </AnimatePresence>
 
-                <button
-                  type="button"
-                  onClick={nextImage}
-                  className="absolute right-5 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/50 backdrop-blur-md transition hover:bg-white hover:text-black"
-                  aria-label="Next image"
-                >
-                  <ArrowRight size={18} />
-                </button>
+                {/* IMAGE COUNTER */}
+
+                <div className="absolute bottom-5 left-5 border border-white/15 bg-black/50 px-4 py-2 text-[10px] uppercase tracking-[0.2em] backdrop-blur-md">
+                  {String(currentImage + 1).padStart(2, "0")} /{" "}
+                  {String(project.images.length).padStart(2, "0")}
+                </div>
+
+                {/* PREVIOUS / NEXT */}
+
+                {project.images.length > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={previousImage}
+                      className="absolute left-5 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/50 backdrop-blur-md transition hover:bg-white hover:text-black"
+                      aria-label="Previous image"
+                    >
+                      <ArrowLeft size={18} />
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={nextImage}
+                      className="absolute right-5 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/50 backdrop-blur-md transition hover:bg-white hover:text-black"
+                      aria-label="Next image"
+                    >
+                      <ArrowRight size={18} />
+                    </button>
+                  </>
+                )}
               </>
+            ) : (
+              /* FALLBACK */
+              <div className="flex h-full min-h-[400px] items-center justify-center text-[10px] uppercase tracking-[0.3em] text-white/30">
+                No media available
+              </div>
             )}
           </div>
 
-          {/* PROJECT INFORMATION */}
+          {/* =================================================
+              PROJECT INFORMATION
+              ================================================= */}
 
           <div className="flex min-h-0 flex-col overflow-y-auto border-l border-white/10 p-7 md:p-10">
+
             <div>
               <p className="text-[10px] uppercase tracking-[0.3em] text-white/35">
                 {project.category}
@@ -381,45 +406,67 @@ function ProjectModal({
               </p>
             </div>
 
-            {/* THUMBNAILS */}
+            {/* =================================================
+                THUMBNAILS
+                Only show for image projects
+                ================================================= */}
 
-            <div className="mt-10">
-              <div className="mb-4 flex items-center justify-between">
+            {hasImages && (
+              <div className="mt-10">
+                <div className="mb-4 flex items-center justify-between">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-white/35">
+                    Project Images
+                  </p>
+
+                  <p className="text-[10px] text-white/30">
+                    {project.images.length} images
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-3 gap-2">
+                  {project.images.map((image, index) => (
+                    <button
+                      type="button"
+                      key={`${image}-${index}`}
+                      onClick={() => setCurrentImage(index)}
+                      className={`relative aspect-square overflow-hidden border transition ${
+                        currentImage === index
+                          ? "border-white"
+                          : "border-white/10 opacity-50 hover:opacity-100"
+                      }`}
+                    >
+                      <img
+                        src={image}
+                        alt={`${project.name} thumbnail ${index + 1}`}
+                        className="h-full w-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* VIDEO LABEL */}
+
+            {hasVideo && (
+              <div className="mt-10 border-t border-white/10 pt-6">
                 <p className="text-[10px] uppercase tracking-[0.25em] text-white/35">
-                  Project Images
+                  Project Media
                 </p>
 
-                <p className="text-[10px] text-white/30">
-                  {project.images.length} images
+                <p className="mt-3 text-sm text-white/40">
+                  Featured video campaign
                 </p>
               </div>
+            )}
 
-              <div className="grid grid-cols-3 gap-2">
-                {project.images.map((image, index) => (
-                  <button
-                    type="button"
-                    key={`${image}-${index}`}
-                    onClick={() => setCurrentImage(index)}
-                    className={`relative aspect-square overflow-hidden border transition ${
-                      currentImage === index
-                        ? "border-white"
-                        : "border-white/10 opacity-50 hover:opacity-100"
-                    }`}
-                  >
-                    <img
-                      src={image}
-                      alt={`${project.name} thumbnail ${index + 1}`}
-                      className="h-full w-full object-cover"
-                    />
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* PROJECT DETAILS */}
+            {/* =================================================
+                PROJECT DETAILS
+                ================================================= */}
 
             <div className="mt-auto pt-12">
               <div className="border-t border-white/10 pt-6">
+
                 <div className="flex justify-between text-[10px] uppercase tracking-[0.2em]">
                   <span className="text-white/35">
                     Year
@@ -430,34 +477,37 @@ function ProjectModal({
                   </span>
                 </div>
 
-                <div className="mt-5 flex justify-between text-[10px] uppercase tracking-[0.2em]">
+                <div className="mt-5 flex justify-between gap-6 text-[10px] uppercase tracking-[0.2em]">
                   <span className="text-white/35">
                     Category
                   </span>
 
-                  <span>
+                  <span className="text-right">
                     {project.category}
                   </span>
                 </div>
 
                 <div className="mt-5 flex justify-between text-[10px] uppercase tracking-[0.2em]">
                   <span className="text-white/35">
-                    Images
+                    Media
                   </span>
 
                   <span>
-                    {project.images.length}
+                    {hasVideo
+                      ? "Video"
+                      : `${project.images.length} Images`}
                   </span>
                 </div>
+
               </div>
             </div>
+
           </div>
         </div>
       </motion.div>
     </motion.div>
   );
 }
-
 /* =========================================================
    MAIN PAGE
    ========================================================= */
@@ -808,77 +858,95 @@ export default function PortfolioPage() {
     </motion.div>
   </div>
 </section>
-                    {/* =====================================================
-          ABOUT
-          ===================================================== */}
+{/* =====================================================
+    ABOUT
+    ===================================================== */}
 
-      <section
-        id="about"
-        className="border-t border-white/10 bg-[#171717] px-6 py-28 md:px-10 md:py-40"
-      >
-        <div className="mx-auto grid max-w-[1500px] gap-16 md:grid-cols-[0.35fr_1fr]">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{
-              once: true,
-            }}
-            variants={fadeUp}
-          >
-            <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
-              About
-            </p>
-          </motion.div>
+<section
+  id="about"
+  className="border-t border-white/10 bg-[#171717] px-6 py-28 md:px-10 md:py-40"
+>
+  <div className="mx-auto max-w-[1500px]">
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{
-              once: true,
-            }}
-            variants={fadeUp}
-          >
-<div className="relative">
-  {/* Small label */}
-  <div className="mb-6 flex items-center gap-3">
-    <span className="h-px w-10 bg-white/40" />
-    <span className="text-[10px] uppercase tracking-[0.35em] text-white/50">
-     Introduction
-    </span>
-  </div>
+    {/* TOP LABEL */}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeUp}
+      className="grid gap-8 md:grid-cols-[0.35fr_1fr]"
+    >
+      <div>
+        <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
+          About
+        </p>
+      </div>
 
-  <h2 className="max-w-5xl font-serif text-4xl font-light leading-[1.08] tracking-[-0.03em] text-white md:text-6xl lg:text-7xl">
+      <div className="flex items-center gap-4">
+        <span className="h-px w-12 bg-white/30" />
+
+        <p className="text-[10px] uppercase tracking-[0.3em] text-white/50">
+          Introduction
+        </p>
+      </div>
+    </motion.div>
+
+{/* LARGE INTRODUCTION */}
+<motion.div
+  initial="hidden"
+  whileInView="visible"
+  viewport={{
+    once: true,
+    amount: 0.2,
+  }}
+  variants={fadeUp}
+  className="mx-auto mt-10 max-w-[1250px] text-center"
+>
+  <h2 className="text-4xl leading-[1.05] tracking-[-0.045em] md:text-6xl lg:text-[5.5rem]">
     An introduction to{" "}
-    <span className="italic text-white">
+    <span className="text-white">
       Sushant,
     </span>{" "}
     <span className="text-white/25">
       his creative journey, and the work that defines his presence.
     </span>
   </h2>
+</motion.div>
 
-  {/* Bottom detail */}
-  <div className="mt-8 flex items-center gap-4 text-[9px] uppercase tracking-[0.3em] text-white/35">
-    <span>Creative / Visual / Experience</span>
+    {/* =====================================================
+    PROFILE / BIO
+    ===================================================== */}
 
+<motion.div
+  initial="hidden"
+  whileInView="visible"
+  viewport={{
+    once: true,
+    amount: 0.2,
+  }}
+  variants={fadeUp}
+  className="mx-auto mt-24 max-w-[900px] text-center md:mt-32"
+>
+  <p className="text-sm leading-7 text-white/45 md:text-base md:leading-8">
+    Every journey begins with a first step. For Sushant Prajapati, that
+    journey began with a growing interest in fashion, expression, and the
+    confidence to step into every new frame. His experience through Model
+    Hunt Nepal — Season 10, alongside his growing work with fashion and
+    lifestyle brands, has shaped his approach to modeling and visual
+    storytelling. For Sushant, modeling is more than standing in front of
+    a camera. It is about presence, expression, versatility, and finding
+    new ways to communicate a story through an image.
+  </p>
 
+  {/* SMALL CLOSING STATEMENT */}
+  <div className="mt-12">
+    <p className="text-[10px] uppercase tracking-[0.25em] text-white/35">
+      The journey is only beginning.
+    </p>
   </div>
-</div>
-
-            <div className="mt-12 grid gap-10 md:grid-cols-2">
-              <p className="text-sm leading-7 text-white/50">
-                Every journey begins with a first step. For Sushant Prajapati, that journey is taking shape through fashion, expression, and the confidence to step into every new frame.
-
-At 20, Sushant is building his path as a model with a growing curiosity for the world of fashion and creative work. From being named 2nd Runner-Up at Model Hunt Nepal S10 to working with Babal Wears, each experience has become part of a journey that continues to evolve.
-
-For Sushant, modeling is more than standing in front of a camera. It is about presence, expression, and discovering new ways to tell a story through an image.
-
-This is only the beginning.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+</motion.div>
+  </div>
+</section>
 
       {/* =====================================================
           SELECTED WORK
@@ -1018,21 +1086,15 @@ This is only the beginning.
             <div>
               {[
                 {
+                  year: "2025 — Present",
+                  role: "Professional Model",
+                  company: "Independent / Freelance",
+                },
+
+                {
                   year: "2026 — Present",
-                  role: "Current Role / Position",
-                  company: "Company Name",
-                },
-
-                {
-                  year: "2024 — 2026",
-                  role: "Previous Role / Position",
-                  company: "Company Name",
-                },
-
-                {
-                  year: "2022 — 2024",
-                  role: "Previous Role / Position",
-                  company: "Company Name",
+                  role: "Model / Contestant · 2nd Runner-Up",
+                  company: "Model Hunt Nepal — Season 10",
                 },
               ].map((item, index) => (
                 <motion.div
