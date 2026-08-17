@@ -98,6 +98,13 @@ const personSchema = {
     "Sushant Prajapati is a model from Nepal with a creative portfolio featuring modeling work, fashion, and visual storytelling.",
   sameAs: [],
 };
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Sushant Prajapati",
+  alternateName: "Sushant Prajapati Model",
+  url: siteUrl,
+};
 
 export default function RootLayout({
   children,
@@ -110,13 +117,20 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(personSchema),
-          }}
-        />
-      </head>
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify(personSchema),
+    }}
+  />
+
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify(websiteSchema),
+    }}
+  />
+</head>
 
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
