@@ -417,7 +417,6 @@ function ProjectModal({
                 Only show for image projects
                 ================================================= */}
 
-            ```tsx id="3l0drn"
 {hasImages && (
   <div className="mt-10">
 
