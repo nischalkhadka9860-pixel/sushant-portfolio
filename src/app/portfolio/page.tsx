@@ -117,7 +117,7 @@ const selectedWork: Project[] = [
       "A defining chapter in Sushant’s modeling journey, showcasing his confidence, versatility, and presence throughout Model Hunt Nepal Season 10. The experience marked an important step in his development as a professional model, from competition appearances to working confidently in front of the camera and on stage.",
   },
 
-  
+
 ];
 
 /* =========================================================
@@ -417,84 +417,82 @@ function ProjectModal({
                 Only show for image projects
                 ================================================= */}
 
-{hasImages && (
-  <div className="mt-10">
+            {hasImages && (
+              <div className="mt-10">
 
-    {/* MANISH RAI — FIRST 6 IMAGES */}
-    <div>
-      <div className="mb-4 flex items-center gap-3">
-        <span className="h-px w-8 bg-white/20" />
+                {/* MANISH RAI — FIRST 6 IMAGES */}
+                <div>
+                  <div className="mb-4 flex items-center gap-3">
+                    <span className="h-px w-8 bg-white/20" />
 
-        <p className="text-[10px] uppercase tracking-[0.25em] text-white/35">
-          Manish Rai
-        </p>
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-white/35">
+                      Manish Rai
+                    </p>
 
-        <span className="h-px flex-1 bg-white/10" />
-      </div>
+                    <span className="h-px flex-1 bg-white/10" />
+                  </div>
 
-      <div className="grid grid-cols-3 gap-2">
-        {project.images.slice(0, 6).map((image, index) => (
-          <button
-            type="button"
-            key={`${image}-${index}`}
-            onClick={() => setCurrentImage(index)}
-            className={`relative aspect-square overflow-hidden border transition ${
-              currentImage === index
-                ? "border-white"
-                : "border-white/10 opacity-50 hover:opacity-100"
-            }`}
-          >
-            <img
-              src={image}
-              alt={`${project.name} thumbnail ${index + 1}`}
-              className="h-full w-full object-cover"
-            />
-          </button>
-        ))}
-      </div>
-    </div>
+                  <div className="grid grid-cols-3 gap-2">
+                    {project.images.slice(0, 6).map((image, index) => (
+                      <button
+                        type="button"
+                        key={`${image}-${index}`}
+                        onClick={() => setCurrentImage(index)}
+                        className={`relative aspect-square overflow-hidden border transition ${currentImage === index
+                            ? "border-white"
+                            : "border-white/10 opacity-50 hover:opacity-100"
+                          }`}
+                      >
+                        <img
+                          src={image}
+                          alt={`${project.name} thumbnail ${index + 1}`}
+                          className="h-full w-full object-cover"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
 
-    {/* SUSHANT — LAST 3 IMAGES */}
-    <div className="mt-8">
-      <div className="mb-4 flex items-center gap-3">
-        <span className="h-px w-8 bg-white/20" />
+                {/* SUSHANT — LAST 3 IMAGES */}
+                <div className="mt-8">
+                  <div className="mb-4 flex items-center gap-3">
+                    <span className="h-px w-8 bg-white/20" />
 
-        <p className="text-[10px] uppercase tracking-[0.25em] text-white/35">
-          Marsyangde
-        </p>
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-white/35">
+                      Marsyangde
+                    </p>
 
-        <span className="h-px flex-1 bg-white/10" />
-      </div>
+                    <span className="h-px flex-1 bg-white/10" />
+                  </div>
 
-      <div className="grid grid-cols-3 gap-2">
-        {project.images.slice(6, 9).map((image, index) => {
-          const actualIndex = index + 6;
+                  <div className="grid grid-cols-3 gap-2">
+                    {project.images.slice(6, 9).map((image, index) => {
+                      const actualIndex = index + 6;
 
-          return (
-            <button
-              type="button"
-              key={`${image}-${actualIndex}`}
-              onClick={() => setCurrentImage(actualIndex)}
-              className={`relative aspect-square overflow-hidden border transition ${
-                currentImage === actualIndex
-                  ? "border-white"
-                  : "border-white/10 opacity-50 hover:opacity-100"
-              }`}
-            >
-              <img
-                src={image}
-                alt={`${project.name} thumbnail ${actualIndex + 1}`}
-                className="h-full w-full object-cover"
-              />
-            </button>
-          );
-        })}
-      </div>
-    </div>
+                      return (
+                        <button
+                          type="button"
+                          key={`${image}-${actualIndex}`}
+                          onClick={() => setCurrentImage(actualIndex)}
+                          className={`relative aspect-square overflow-hidden border transition ${currentImage === actualIndex
+                              ? "border-white"
+                              : "border-white/10 opacity-50 hover:opacity-100"
+                            }`}
+                        >
+                          <img
+                            src={image}
+                            alt={`${project.name} thumbnail ${actualIndex + 1}`}
+                            className="h-full w-full object-cover"
+                          />
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
 
-  </div>
-)}
-```
+              </div>
+            )}
+            ```
 
 
             {/* VIDEO LABEL */}
@@ -578,15 +576,18 @@ export default function PortfolioPage() {
       <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-[#171717]/80 backdrop-blur-xl">
         <div className="mx-auto flex h-20 max-w-[1500px] items-center justify-between px-6 md:px-10">
           <a
-  href="/"
-  className="group flex items-center"
-  aria-label="Back to homepage"
->
-  <span className="text-sm font-medium tracking-[0.18em] transition-opacity duration-300 group-hover:opacity-60">
-    SP.
-  </span>
-</a>
-        
+            href="/"
+            aria-label="Back to homepage"
+            className="relative z-[100] flex cursor-pointer items-center"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.assign("/");
+            }}
+          >
+            <span className="text-sm font-medium tracking-[0.18em]">
+              SP.
+            </span>
+          </a>
 
           {/* DESKTOP NAV */}
 
@@ -743,7 +744,7 @@ export default function PortfolioPage() {
 
               <div className="mt-12 ml-[7vw] max-w-md">
                 <p className="text-sm leading-7 text-white/45 md:text-base">
-                 A young model with a growing presence in fashion, bringing confidence, character, and individuality to every frame.
+                  A young model with a growing presence in fashion, bringing confidence, character, and individuality to every frame.
                 </p>
 
                 <a
@@ -810,198 +811,198 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-    
+
 
       {/* =====================================================
           BRANDS
           ===================================================== */}
 
-<section
-  id="brands"
-  className="border-t border-white/10 bg-[#171717] px-6 py-28 md:px-10 md:py-40"
->
-  <div className="mx-auto max-w-[1500px]">
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{
-        once: true,
-      }}
-      variants={fadeUp}
-      className="mb-16 flex flex-col justify-between gap-8 md:flex-row md:items-end"
-    >
-      <div>
-        <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
-          Collaborations
-        </p>
+      <section
+        id="brands"
+        className="border-t border-white/10 bg-[#171717] px-6 py-28 md:px-10 md:py-40"
+      >
+        <div className="mx-auto max-w-[1500px]">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{
+              once: true,
+            }}
+            variants={fadeUp}
+            className="mb-16 flex flex-col justify-between gap-8 md:flex-row md:items-end"
+          >
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
+                Collaborations
+              </p>
 
-        <h2 className="mt-5 text-4xl tracking-[-0.04em] md:text-7xl">
-          Brands I&apos;ve
-          <br />
+              <h2 className="mt-5 text-4xl tracking-[-0.04em] md:text-7xl">
+                Brands I&apos;ve
+                <br />
 
-          <span className="text-white/30">
-            worked with.
-          </span>
-        </h2>
-      </div>
+                <span className="text-white/30">
+                  worked with.
+                </span>
+              </h2>
+            </div>
 
-      <p className="max-w-xs text-sm leading-6 text-white/40">
-        A selection of collaborations and projects. Click a
-        project to explore all of its images.
-      </p>
-    </motion.div>
+            <p className="max-w-xs text-sm leading-6 text-white/40">
+              A selection of collaborations and projects. Click a
+              project to explore all of its images.
+            </p>
+          </motion.div>
 
-    {/* BRAND PROJECTS */}
-    <div className="grid gap-x-6 gap-y-16 md:grid-cols-2">
-      {brands.map((project, index) => (
-        <ProjectCard
-          key={project.id}
-          project={project}
-          index={index}
-          onClick={() =>
-            setSelectedProject(project)
-          }
-        />
-      ))}
-    </div>
+          {/* BRAND PROJECTS */}
+          <div className="grid gap-x-6 gap-y-16 md:grid-cols-2">
+            {brands.map((project, index) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={index}
+                onClick={() =>
+                  setSelectedProject(project)
+                }
+              />
+            ))}
+          </div>
 
-    {/* JOURNEY CONTINUES */}
-    <motion.div
-      initial={{
-        opacity: 0,
-        y: 40,
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-      }}
-      viewport={{
-        once: true,
-        amount: 0.3,
-      }}
-      transition={{
-        duration: 1,
-        ease: [0.22, 1, 0.36, 1] as const,
-      }}
-      className="mt-28 border-t border-white/10 pt-16 md:mt-40 md:pt-20"
-    >
-      <div className="flex flex-col items-center text-center">
-        <p className="mb-6 text-[9px] uppercase tracking-[0.35em] text-white/30">
-          The next chapter
-        </p>
+          {/* JOURNEY CONTINUES */}
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 40,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+              amount: 0.3,
+            }}
+            transition={{
+              duration: 1,
+              ease: [0.22, 1, 0.36, 1] as const,
+            }}
+            className="mt-28 border-t border-white/10 pt-16 md:mt-40 md:pt-20"
+          >
+            <div className="flex flex-col items-center text-center">
+              <p className="mb-6 text-[9px] uppercase tracking-[0.35em] text-white/30">
+                The next chapter
+              </p>
 
-        <h3 className="max-w-4xl font-serif text-4xl font-light leading-[0.95] tracking-[-0.04em] text-white/90 md:text-7xl">
-          The journey
-          <br />
+              <h3 className="max-w-4xl font-serif text-4xl font-light leading-[0.95] tracking-[-0.04em] text-white/90 md:text-7xl">
+                The journey
+                <br />
 
-          <span className="text-white/30">
-            continues.
-          </span>
-        </h3>
+                <span className="text-white/30">
+                  continues.
+                </span>
+              </h3>
 
-        <div className="mt-10 h-px w-16 bg-white/20" />
+              <div className="mt-10 h-px w-16 bg-white/20" />
 
-        <p className="mt-6 max-w-md text-xs leading-6 text-white/35 md:text-sm">
-          More collaborations, campaigns, and creative stories
-          are yet to come.
-        </p>
+              <p className="mt-6 max-w-md text-xs leading-6 text-white/35 md:text-sm">
+                More collaborations, campaigns, and creative stories
+                are yet to come.
+              </p>
 
-        <p className="mt-8 text-[9px] uppercase tracking-[0.3em] text-white/20">
-          04 — ∞
-        </p>
-      </div>
-    </motion.div>
-  </div>
-</section>
-{/* =====================================================
+              <p className="mt-8 text-[9px] uppercase tracking-[0.3em] text-white/20">
+                04 — ∞
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+      {/* =====================================================
     ABOUT
     ===================================================== */}
 
-<section
-  id="about"
-  className="border-t border-white/10 bg-[#171717] px-6 py-28 md:px-10 md:py-40"
->
-  <div className="mx-auto max-w-[1500px]">
+      <section
+        id="about"
+        className="border-t border-white/10 bg-[#171717] px-6 py-28 md:px-10 md:py-40"
+      >
+        <div className="mx-auto max-w-[1500px]">
 
-    {/* TOP LABEL */}
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={fadeUp}
-      className="grid gap-8 md:grid-cols-[0.35fr_1fr]"
-    >
-      <div>
-        <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
-          About
-        </p>
-      </div>
+          {/* TOP LABEL */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="grid gap-8 md:grid-cols-[0.35fr_1fr]"
+          >
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
+                About
+              </p>
+            </div>
 
-      <div className="flex items-center gap-4">
-        <span className="h-px w-12 bg-white/30" />
+            <div className="flex items-center gap-4">
+              <span className="h-px w-12 bg-white/30" />
 
-        <p className="text-[10px] uppercase tracking-[0.3em] text-white/50">
-          Introduction
-        </p>
-      </div>
-    </motion.div>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-white/50">
+                Introduction
+              </p>
+            </div>
+          </motion.div>
 
-{/* LARGE INTRODUCTION */}
-<motion.div
-  initial="hidden"
-  whileInView="visible"
-  viewport={{
-    once: true,
-    amount: 0.2,
-  }}
-  variants={fadeUp}
-  className="mx-auto mt-10 max-w-[1250px] text-center"
->
-  <h2 className="text-4xl leading-[1.05] tracking-[-0.045em] md:text-6xl lg:text-[5.5rem]">
-    An introduction to{" "}
-    <span className="text-white">
-      Sushant,
-    </span>{" "}
-    <span className="text-white/25">
-      his creative journey, and the work that defines his presence.
-    </span>
-  </h2>
-</motion.div>
+          {/* LARGE INTRODUCTION */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{
+              once: true,
+              amount: 0.2,
+            }}
+            variants={fadeUp}
+            className="mx-auto mt-10 max-w-[1250px] text-center"
+          >
+            <h2 className="text-4xl leading-[1.05] tracking-[-0.045em] md:text-6xl lg:text-[5.5rem]">
+              An introduction to{" "}
+              <span className="text-white">
+                Sushant,
+              </span>{" "}
+              <span className="text-white/25">
+                his creative journey, and the work that defines his presence.
+              </span>
+            </h2>
+          </motion.div>
 
-    {/* =====================================================
+          {/* =====================================================
     PROFILE / BIO
     ===================================================== */}
 
-<motion.div
-  initial="hidden"
-  whileInView="visible"
-  viewport={{
-    once: true,
-    amount: 0.2,
-  }}
-  variants={fadeUp}
-  className="mx-auto mt-24 max-w-[900px] text-center md:mt-32"
->
-  <p className="text-sm leading-7 text-white/45 md:text-base md:leading-8">
-    Every journey begins with a first step. For Sushant Prajapati, that
-    journey began with a growing interest in fashion, expression, and the
-    confidence to step into every new frame. His experience through Model
-    Hunt Nepal — Season 10, alongside his growing work with fashion and
-    lifestyle brands, has shaped his approach to modeling and visual
-    storytelling. For Sushant, modeling is more than standing in front of
-    a camera. It is about presence, expression, versatility, and finding
-    new ways to communicate a story through an image.
-  </p>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{
+              once: true,
+              amount: 0.2,
+            }}
+            variants={fadeUp}
+            className="mx-auto mt-24 max-w-[900px] text-center md:mt-32"
+          >
+            <p className="text-sm leading-7 text-white/45 md:text-base md:leading-8">
+              Every journey begins with a first step. For Sushant Prajapati, that
+              journey began with a growing interest in fashion, expression, and the
+              confidence to step into every new frame. His experience through Model
+              Hunt Nepal — Season 10, alongside his growing work with fashion and
+              lifestyle brands, has shaped his approach to modeling and visual
+              storytelling. For Sushant, modeling is more than standing in front of
+              a camera. It is about presence, expression, versatility, and finding
+              new ways to communicate a story through an image.
+            </p>
 
-  {/* SMALL CLOSING STATEMENT */}
-  <div className="mt-12">
-    <p className="text-[10px] uppercase tracking-[0.25em] text-white/35">
-      The journey is only beginning.
-    </p>
-  </div>
-</motion.div>
-  </div>
-</section>
+            {/* SMALL CLOSING STATEMENT */}
+            <div className="mt-12">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-white/35">
+                The journey is only beginning.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* =====================================================
           SELECTED WORK
@@ -1022,7 +1023,7 @@ export default function PortfolioPage() {
             className="mb-16"
           >
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
-             Selected Work
+              Selected Work
             </p>
 
             <h2 className="mt-5 max-w-3xl text-4xl tracking-[-0.04em] md:text-7xl">
@@ -1053,11 +1054,10 @@ export default function PortfolioPage() {
                 className="group grid w-full gap-8 text-left md:grid-cols-[1.3fr_0.7fr] md:items-end"
               >
                 <div
-                  className={`relative overflow-hidden ${
-                    index % 2 === 1
+                  className={`relative overflow-hidden ${index % 2 === 1
                       ? "md:order-2"
                       : ""
-                  }`}
+                    }`}
                 >
                   <motion.img
                     src={project.images[0]}
@@ -1075,11 +1075,10 @@ export default function PortfolioPage() {
                 </div>
 
                 <div
-                  className={`${
-                    index % 2 === 1
+                  className={`${index % 2 === 1
                       ? "md:order-1"
                       : ""
-                  }`}
+                    }`}
                 >
                   <div className="mb-6 flex items-center justify-between border-b border-white/10 pb-4">
                     <span className="text-[10px] uppercase tracking-[0.25em] text-white/40">
@@ -1134,7 +1133,7 @@ export default function PortfolioPage() {
               variants={fadeUp}
             >
               <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
-                 Experience
+                Experience
               </p>
             </motion.div>
 
