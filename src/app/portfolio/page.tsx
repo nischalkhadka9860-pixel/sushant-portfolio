@@ -461,7 +461,7 @@ function ProjectModal({
         <span className="h-px w-8 bg-white/20" />
 
         <p className="text-[10px] uppercase tracking-[0.25em] text-white/35">
-          Sushant Prajapati
+          Marsyangde
         </p>
 
         <span className="h-px flex-1 bg-white/10" />
