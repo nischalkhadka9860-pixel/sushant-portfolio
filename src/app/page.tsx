@@ -358,7 +358,7 @@ export default function Home() {
             whileHover={{
               scale: 1.05,
             }}
-            className="group -ml-4 mt-8 flex items-center gap-3"
+            className="group mt-8 flex items-center gap-3 border border-white/25 px-6 py-3.5 transition-all duration-500 hover:border-white hover:bg-white hover:text-black"
           >
 
             <span
@@ -368,7 +368,7 @@ export default function Home() {
                   "1px rgba(255,255,255,0.95)",
               }}
             >
-              Explore More
+              Explore Portfolio
             </span>
 
             <ArrowUpRight
@@ -600,7 +600,7 @@ export default function Home() {
               whileTap={{
                 scale: 0.97,
               }}
-              className="mt-9 flex items-center gap-3"
+             className="mt-9 flex items-center gap-3 border border-white/25 px-6 py-3.5 transition-all duration-500 active:bg-white active:text-black"
             >
 
               <span
@@ -610,7 +610,7 @@ export default function Home() {
                     "1px rgba(255,255,255,0.95)",
                 }}
               >
-                Explore More
+                Explore Portfolio
               </span>
 
               <ArrowUpRight
