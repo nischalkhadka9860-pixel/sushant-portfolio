@@ -103,9 +103,15 @@ const selectedWork: Project[] = [
     category: "Modeling Competition",
     year: "2026",
     images: [
-      "/images/photo2.png",
-      "/images/photo3.png",
-      "/images/photo6.png",
+      "/images/model1.jpg",
+      "/images/model2.jpg",
+      "/images/model3.jpg",
+      "/images/model4.jpg",
+      "/images/model5.jpg",
+      "/images/model6.jpg",
+      "/images/model7.jpg",
+      "/images/model8.jpg",
+      "/images/model9.jpg",
     ],
     description:
       "A defining chapter in Sushant’s modeling journey, showcasing his confidence, versatility, and presence throughout Model Hunt Nepal Season 10. The experience marked an important step in his development as a professional model, from competition appearances to working confidently in front of the camera and on stage.",
