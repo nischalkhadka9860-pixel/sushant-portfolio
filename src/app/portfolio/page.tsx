@@ -239,6 +239,7 @@ function ProjectModal({
 
   const hasVideo = Boolean(project.video);
   const hasImages = project.images.length > 0;
+  const isSelectedWork = selectedWork.some((item) => item.id === project.id);
 
   const nextImage = () => {
     if (!hasImages) return;
@@ -419,80 +420,110 @@ function ProjectModal({
 
             {hasImages && (
               <div className="mt-10">
+                {isSelectedWork ? (
+                  <>
+                    {/* MANISH RAI — FIRST 6 IMAGES */}
+                    <div>
+                      <div className="mb-4 flex items-center gap-3">
+                        <span className="h-px w-8 bg-white/20" />
+                        <p className="text-[10px] uppercase tracking-[0.25em] text-white/35">
+                          Manish Rai
+                        </p>
+                        <span className="h-px flex-1 bg-white/10" />
+                      </div>
 
-                {/* MANISH RAI — FIRST 6 IMAGES */}
-                <div>
-                  <div className="mb-4 flex items-center gap-3">
-                    <span className="h-px w-8 bg-white/20" />
+                      <div className="grid grid-cols-3 gap-2">
+                        {project.images.slice(0, 6).map((image, index) => (
+                          <button
+                            type="button"
+                            key={`${image}-${index}`}
+                            onClick={() => setCurrentImage(index)}
+                            className={`relative aspect-square overflow-hidden border transition ${
+                              currentImage === index
+                                ? "border-white"
+                                : "border-white/10 opacity-50 hover:opacity-100"
+                            }`}
+                          >
+                            <img
+                              src={image}
+                              alt={`${project.name} thumbnail ${index + 1}`}
+                              className="h-full w-full object-cover"
+                            />
+                          </button>
+                        ))}
+                      </div>
+                    </div>
 
-                    <p className="text-[10px] uppercase tracking-[0.25em] text-white/35">
-                      Manish Rai
-                    </p>
+                    {/* MARSHADI — LAST 3 IMAGES */}
+                    <div className="mt-8">
+                      <div className="mb-4 flex items-center gap-3">
+                        <span className="h-px w-8 bg-white/20" />
+                        <p className="text-[10px] uppercase tracking-[0.25em] text-white/35">
+                          Marshadi
+                        </p>
+                        <span className="h-px flex-1 bg-white/10" />
+                      </div>
 
-                    <span className="h-px flex-1 bg-white/10" />
-                  </div>
+                      <div className="grid grid-cols-3 gap-2">
+                        {project.images.slice(6, 9).map((image, index) => {
+                          const actualIndex = index + 6;
+                          return (
+                            <button
+                              type="button"
+                              key={`${image}-${actualIndex}`}
+                              onClick={() => setCurrentImage(actualIndex)}
+                              className={`relative aspect-square overflow-hidden border transition ${
+                                currentImage === actualIndex
+                                  ? "border-white"
+                                  : "border-white/10 opacity-50 hover:opacity-100"
+                              }`}
+                            >
+                              <img
+                                src={image}
+                                alt={`${project.name} thumbnail ${actualIndex + 1}`}
+                                className="h-full w-full object-cover"
+                              />
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {/* BRAND PROJECT IMAGES — NO MANISH/MARSHADI LABELS */}
+                    <div className="mb-4 flex items-center gap-3">
+                      <span className="h-px w-8 bg-white/20" />
+                      <p className="text-[10px] uppercase tracking-[0.25em] text-white/35">
+                        Project Images
+                      </p>
+                      <span className="h-px flex-1 bg-white/10" />
+                    </div>
 
-                  <div className="grid grid-cols-3 gap-2">
-                    {project.images.slice(0, 6).map((image, index) => (
-                      <button
-                        type="button"
-                        key={`${image}-${index}`}
-                        onClick={() => setCurrentImage(index)}
-                        className={`relative aspect-square overflow-hidden border transition ${currentImage === index
-                            ? "border-white"
-                            : "border-white/10 opacity-50 hover:opacity-100"
-                          }`}
-                      >
-                        <img
-                          src={image}
-                          alt={`${project.name} thumbnail ${index + 1}`}
-                          className="h-full w-full object-cover"
-                        />
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* SUSHANT — LAST 3 IMAGES */}
-                <div className="mt-8">
-                  <div className="mb-4 flex items-center gap-3">
-                    <span className="h-px w-8 bg-white/20" />
-
-                    <p className="text-[10px] uppercase tracking-[0.25em] text-white/35">
-                      Marsyangde
-                    </p>
-
-                    <span className="h-px flex-1 bg-white/10" />
-                  </div>
-
-                  <div className="grid grid-cols-3 gap-2">
-                    {project.images.slice(6, 9).map((image, index) => {
-                      const actualIndex = index + 6;
-
-                      return (
+                    <div className="grid grid-cols-3 gap-2">
+                      {project.images.map((image, index) => (
                         <button
                           type="button"
-                          key={`${image}-${actualIndex}`}
-                          onClick={() => setCurrentImage(actualIndex)}
-                          className={`relative aspect-square overflow-hidden border transition ${currentImage === actualIndex
+                          key={`${image}-${index}`}
+                          onClick={() => setCurrentImage(index)}
+                          className={`relative aspect-square overflow-hidden border transition ${
+                            currentImage === index
                               ? "border-white"
                               : "border-white/10 opacity-50 hover:opacity-100"
-                            }`}
+                          }`}
                         >
                           <img
                             src={image}
-                            alt={`${project.name} thumbnail ${actualIndex + 1}`}
+                            alt={`${project.name} thumbnail ${index + 1}`}
                             className="h-full w-full object-cover"
                           />
                         </button>
-                      );
-                    })}
-                  </div>
-                </div>
-
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
             )}
-            ```
 
 
             {/* VIDEO LABEL */}
