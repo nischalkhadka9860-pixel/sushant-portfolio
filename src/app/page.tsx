@@ -7,7 +7,12 @@ const photos = {
   photo1: "/images/photo1.png",
   photo2: "/images/photo2.png",
   photo3: "/images/photo3.png",
-  photo4: "/images/photo4.png",
+ // Desktop Photo 4
+  photo4Desktop: "/images/photo4.png",
+
+  // Mobile Photo 4
+  photo4Mobile: "/images/ss.png",
+
   photo6: "/images/photo6.png",
   photo7: "/images/photo7.png",
   photo8: "/images/photo8.png",
@@ -154,7 +159,7 @@ export default function Home() {
           className="absolute left-[6%] top-[30%] z-10 hidden h-[260px] w-[190px] overflow-hidden md:block lg:h-[310px] lg:w-[225px]"
         >
           <img
-            src={photos.photo4}
+            src={photos.photo4Desktop}
             alt="Sushant Prajapati editorial portrait"
             className="h-full w-full object-cover grayscale-[10%] transition-transform duration-[1800ms] hover:scale-105"
           />
@@ -673,7 +678,7 @@ export default function Home() {
               className="h-[230px] overflow-hidden"
             >
               <img
-                src={photos.photo4}
+                src={photos.photo4Mobile}
                 alt="Sushant Prajapati editorial portrait"
                 className="h-full w-full object-cover"
               />
