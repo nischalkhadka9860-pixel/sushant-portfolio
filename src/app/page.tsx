@@ -358,7 +358,7 @@ export default function Home() {
             whileHover={{
               scale: 1.05,
             }}
-            className="group mt-8 flex items-center gap-3 border-[1.5px] border-white/40 px-6 py-3.5 transition-all duration-500 hover:border-white"
+            className="group mt-8 flex items-center gap-3 border-2 border-white/45 px-6 py-3.5 transition-all duration-500 hover:border-white"
           >
 
             <span
@@ -600,7 +600,7 @@ export default function Home() {
               whileTap={{
                 scale: 0.97,
               }}
-              className="mt-9 flex items-center gap-3 border border-white/25 px-6 py-3.5 transition-all duration-500 active:bg-white active:text-black"
+              className="mt-9 flex items-center gap-3 border-2 border-white/40 px-6 py-3.5 transition-all duration-500 active:bg-white active:text-black"
             >
 
               <span
