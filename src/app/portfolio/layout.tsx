@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/portfolio",
   },
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function PortfolioLayout({
