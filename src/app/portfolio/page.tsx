@@ -56,7 +56,7 @@ const brands: Project[] = [
       "/images/Brand9.jpg",
     ],
     description:
-      "A lifestyle-focused collaboration for Klaron, capturing a natural and effortless approach to everyday fashion through relaxed styling, authentic movement, and an outdoor setting.",
+      "A branding-focused shoot for Klaron, using a clean studio aesthetic, controlled lighting, and strong visual presence to create imagery aligned with the brand’s identity.",
   },
 
   {
@@ -76,7 +76,7 @@ const brands: Project[] = [
 
     ],
     description:
-      "A branding-focused shoot for Klaron, using a clean studio aesthetic, controlled lighting, and strong visual presence to create imagery aligned with the brand’s identity.",
+    "A lifestyle-focused collaboration for Klaron, capturing a natural and effortless approach to everyday fashion through relaxed styling, authentic movement, and an outdoor setting.",
   },
 
   {
