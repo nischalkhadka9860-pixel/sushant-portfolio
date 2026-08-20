@@ -344,46 +344,82 @@ export default function Home() {
           </div>
 
 
-          {/* EXPLORE MORE */}
+          {/* EXPLORE PORTFOLIO */}
 
-          <motion.a
-            href="/portfolio"
-            initial={{
-              opacity: 0,
-              y: 18,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.8,
-              delay: 1.25,
-            }}
-            whileHover={{
-              scale: 1.05,
-            }}
-            className="group mt-8 flex items-center gap-3 border-2 border-white/45 px-6 py-3.5 transition-all duration-500 hover:border-white"
-          >
+<motion.a
+  href="/portfolio"
+  initial={{
+    opacity: 0,
+    y: 18,
+  }}
+  animate={{
+    opacity: 1,
+    y: 0,
+  }}
+  transition={{
+    duration: 0.8,
+    delay: 1.25,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+  whileHover="hover"
+  className="group relative mt-8 flex w-fit items-center gap-4 overflow-hidden border border-white/35 px-7 py-4 transition-all duration-500 hover:border-white"
+>
+  {/* Animated background */}
+  <motion.span
+    variants={{
+      hover: {
+        scaleX: 1,
+      },
+    }}
+    initial={{
+      scaleX: 0,
+    }}
+    transition={{
+      duration: 0.55,
+      ease: [0.22, 1, 0.36, 1],
+    }}
+    className="absolute inset-0 origin-left bg-white"
+  />
 
-            <span
-              className="font-serif text-[24px] font-light text-transparent transition-all duration-500 group-hover:text-white"
-              style={{
-                WebkitTextStroke:
-                  "1px rgba(255,255,255,0.95)",
-              }}
-            >
-              Explore Portfolio
-            </span>
+  {/* Text */}
+  <motion.span
+    variants={{
+      hover: {
+        x: 2,
+        color: "#171719",
+      },
+    }}
+    transition={{
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1],
+    }}
+    className="relative z-10 font-serif text-[25px] font-light tracking-[-0.02em] text-white"
+  >
+    Explore Portfolio
+  </motion.span>
 
-            <ArrowUpRight
-              size={17}
-              strokeWidth={1.2}
-              className="text-white/80 transition-all duration-500 group-hover:-translate-y-1 group-hover:translate-x-1"
-            />
-
-          </motion.a>
-
+  {/* Arrow */}
+  <motion.span
+    variants={{
+      hover: {
+        x: 5,
+        y: -5,
+        rotate: 8,
+      },
+    }}
+    transition={{
+      duration: 0.45,
+      ease: [0.22, 1, 0.36, 1],
+    }}
+    className="relative z-10"
+  >
+    <ArrowUpRight
+      size={18}
+      strokeWidth={1.2}
+      className="text-white transition-colors duration-400 group-hover:text-[#171719]"
+    />
+  </motion.span>
+</motion.a>
 
           {/* DESCRIPTION */}
 
@@ -510,39 +546,7 @@ export default function Home() {
           <div className="flex flex-col items-center py-20 text-center">
 
 
-            {/* SP FRAME */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                scale: 0.7,
-              }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-              }}
-              transition={{
-                duration: 0.8,
-              }}
-              className="relative mb-8 flex h-12 w-12 items-center justify-center"
-            >
-
-              <div className="absolute inset-0 border border-white/30" />
-
-              <span className="absolute -left-[2px] -top-[2px] h-3 w-3 border-l border-t border-white/80" />
-
-              <span className="absolute -right-[2px] -top-[2px] h-3 w-3 border-r border-t border-white/80" />
-
-              <span className="absolute -bottom-[2px] -left-[2px] h-3 w-3 border-b border-l border-white/80" />
-
-              <span className="absolute -bottom-[2px] -right-[2px] h-3 w-3 border-b border-r border-white/80" />
-
-              <div className="text-xl font-medium tracking-[0.12em]">
-                SP
-              </div>
-
-            </motion.div>
-
+          
 
             {/* WELCOME */}
 
