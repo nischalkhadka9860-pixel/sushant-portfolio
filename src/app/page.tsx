@@ -257,41 +257,7 @@ export default function Home() {
         <div className="absolute left-1/2 top-1/2 z-30 hidden w-[90%] -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center md:flex">
 
 
-          {/* X FRAME / SP */}
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              scale: 0.5,
-              rotate: -45,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              rotate: 0,
-            }}
-            transition={{
-              duration: 1,
-              delay: 0.8,
-            }}
-            className="relative mb-7 flex h-[58px] w-[58px] items-center justify-center"
-          >
-
-            <div className="absolute inset-0 border border-white/30" />
-
-            <span className="absolute -left-[2px] -top-[2px] h-4 w-4 border-l border-t border-white/80" />
-
-            <span className="absolute -right-[2px] -top-[2px] h-4 w-4 border-r border-t border-white/80" />
-
-            <span className="absolute -bottom-[2px] -left-[2px] h-4 w-4 border-b border-l border-white/80" />
-
-            <span className="absolute -bottom-[2px] -right-[2px] h-4 w-4 border-b border-r border-white/80" />
-
-            <div className="text-2xl font-medium tracking-[0.18em]">
-              SP
-            </div>
-
-          </motion.div>
+         
 
 
           {/* WELCOME */}
