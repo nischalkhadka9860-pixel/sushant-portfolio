@@ -556,44 +556,85 @@ export default function Home() {
             </motion.h1>
 
 
-            {/* EXPLORE MORE */}
+            {/* EXPLORE PORTFOLIO */}
 
-            <motion.a
-              href="/portfolio"
-              initial={{
-                opacity: 0,
-                y: 15,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.8,
-                delay: 0.5,
-              }}
-              whileTap={{
-                scale: 0.97,
-              }}
-              className="mt-9 flex items-center gap-3 border-2 border-white/40 px-6 py-3.5 transition-all duration-500 active:bg-white active:text-black"
-            >
+<motion.a
+  href="/portfolio"
+  initial={{
+    opacity: 0,
+    y: 15,
+  }}
+  animate={{
+    opacity: 1,
+    y: 0,
+  }}
+  transition={{
+    duration: 0.8,
+    delay: 0.5,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+  whileTap="hover"
+  className="group relative mt-9 flex w-fit items-center gap-4 overflow-hidden border border-white/40 px-6 py-3.5"
+>
+  {/* Animated white background */}
+  <motion.span
+    variants={{
+      hover: {
+        scaleX: 1,
+      },
+    }}
+    initial={{
+      scaleX: 0,
+    }}
+    transition={{
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1],
+    }}
+    className="absolute inset-0 origin-left bg-white"
+  />
 
-              <span
-                className="font-serif text-2xl font-light text-transparent"
-                style={{
-                  WebkitTextStroke:
-                    "1px rgba(255,255,255,0.95)",
-                }}
-              >
-                Explore Portfolio
-              </span>
+  {/* Text */}
+  <motion.span
+    variants={{
+      hover: {
+        color: "#171719",
+        x: 2,
+      },
+    }}
+    transition={{
+      duration: 0.35,
+      ease: [0.22, 1, 0.36, 1],
+    }}
+    style={{
+      fontFamily: "Georgia, 'Times New Roman', serif",
+    }}
+    className="relative z-10 text-[22px] font-normal tracking-[-0.02em] text-white"
+  >
+    Explore Portfolio
+  </motion.span>
 
-              <ArrowUpRight
-                size={16}
-                strokeWidth={1}
-              />
-
-            </motion.a>
+  {/* Arrow */}
+  <motion.span
+    variants={{
+      hover: {
+        x: 5,
+        y: -4,
+        rotate: 8,
+      },
+    }}
+    transition={{
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1],
+    }}
+    className="relative z-10"
+  >
+    <ArrowUpRight
+      size={17}
+      strokeWidth={1.2}
+      className="text-white"
+    />
+  </motion.span>
+</motion.a>
 
 
             {/* DESCRIPTION */}
