@@ -43,6 +43,11 @@ export const metadata: Metadata = {
   ],
 
   creator: "Sushant Prajapati",
+  icons: {
+  icon: "/icon.png",
+  shortcut: "/icon.png",
+  apple: "/icon.png",
+},
 
   alternates: {
     canonical: "/",
